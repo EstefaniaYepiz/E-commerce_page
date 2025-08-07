@@ -16,10 +16,6 @@ This is a simple responsive e-commerce store built with **React** and **Vite**. 
 - CSS (Custom styles)
 - localStorage (for persistence)
 
-## 📸 Screenshots
-
-> You can add screenshots here if you'd like! (Press `PrtScn`, paste into Paint, crop, save, and drag them into this file.)
-
 ## 📦 Features
 
 - Product list with placeholder images
@@ -35,5 +31,5 @@ To run this project locally:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/ecommerce-app.git
+   git clone https://github.com/EstefaniaYepiz/E-commerce_page.git
    ```

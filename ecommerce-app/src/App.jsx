@@ -6,24 +6,30 @@ import CheckoutForm from "./components/CheckoutForm";
 
 function App() {
 	const [cart, setCart] = useState([]);
-	const [orderPlaced, setOrderPlaced] = useState(() => {
-		return localStorage.getItem("orderPlaced") === "true";
-	});
+	const [orderPlaced, setOrderPlaced] = useState(false);
+	const [cartLoaded, setCartLoaded] = useState(false);
+
 	useEffect(() => {
 		const storedCart = localStorage.getItem("cart");
 		if (storedCart) {
-			console.log("🔍 Loading cart from localStorage:", storedCart);
-			setCart(JSON.parse(storedCart));
-			setOrderPlaced(false);
-		} else {
-			console.log("🛒 No cart in localStorage");
+			const parsedCart = JSON.parse(storedCart);
+			setCart(parsedCart);
+
+			if (parsedCart.length > 0) {
+				setOrderPlaced(false);
+			}
 		}
+		setCartLoaded(true);
 	}, []);
 
 	useEffect(() => {
-		console.log("💾 Saving cart to localStorage:", cart);
-		localStorage.setItem("cart", JSON.stringify(cart));
-	}, [cart]);
+		if (cartLoaded) {
+			localStorage.setItem("cart", JSON.stringify(cart));
+			console.log("Saving cart to localStorage:", cart);
+		}
+	}, [cart, cartLoaded]);
+
+	if (!cartLoaded) return <p>Loading...</p>;
 
 	const addToCart = (product) => {
 		setCart([...cart, product]);
@@ -37,7 +43,7 @@ function App() {
 		setCart([]);
 		setOrderPlaced(true);
 		localStorage.removeItem("cart");
-		localStorage.setItem("orderPlaced", "true");
+		localStorage.removeItem("orderPlaced");
 	};
 
 	return (
@@ -56,9 +62,9 @@ function App() {
 
 			<Cart cart={cart} removeFromCart={removeFromCart} />
 
-			{orderPlaced ? (
+			{orderPlaced && cart.length === 0 ? (
 				<h2 style={{ color: "green", marginTop: "2rem" }}>
-					🎉 Thank you for your order!
+					Thank you for your order!
 				</h2>
 			) : (
 				<CheckoutForm cart={cart} onSubmit={handleOrderSubmit} />
