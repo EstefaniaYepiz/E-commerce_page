@@ -1,12 +1,39 @@
-# React + Vite
+# 🛍️ Simple E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple responsive e-commerce store built with **React** and **Vite**. It allows users to:
 
-Currently, two official plugins are available:
+- Browse products
+- Add/remove items from a shopping cart
+- Fill out a checkout form
+- Submit an order (with a confirmation message)
+- Persist cart data using `localStorage`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Technologies Used
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS (Custom styles)
+- localStorage (for persistence)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Screenshots
+
+> You can add screenshots here if you'd like! (Press `PrtScn`, paste into Paint, crop, save, and drag them into this file.)
+
+## 📦 Features
+
+- Product list with placeholder images
+- Functional shopping cart (add/remove items)
+- Checkout form with input validation
+- Order confirmation message
+- Mobile responsive layout
+- Persistent cart with `localStorage`
+
+## 🚀 Getting Started
+
+To run this project locally:
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/ecommerce-app.git
+   ```
